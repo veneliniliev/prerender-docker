@@ -22,8 +22,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@main
+      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: veneliniliev/prerender-docker:latest
+          tags: veneliniliev/prerender-docker:${{ steps.package-version.outputs.current-version}}
