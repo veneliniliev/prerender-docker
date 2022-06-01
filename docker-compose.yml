@@ -1,7 +1,7 @@
 version: '3'
 services:
     prerender:
-        image: tvanro/prerender-alpine
+        image: veneliniliev/prerender-docker
         ports:
         - 3000:3000
         environment:
