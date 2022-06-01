@@ -14,8 +14,15 @@ if (memCache === 1) {
     server.use(prMemoryCache);
 }
 
-server.use(prerender.blacklist());
+if (process.env.BLACKLISTED_DOMAINS) {
+    server.use(prerender.blacklist());
+}
+
 server.use(prerender.httpHeaders());
 server.use(prerender.removeScriptTags());
+
+if (process.env.ALLOWED_DOMAINS) {
+    server.use(prerender.whitelist());
+}
 
 server.start();
