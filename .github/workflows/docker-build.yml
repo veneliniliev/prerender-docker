@@ -22,11 +22,12 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: get-npm-version
+        name: Get version
         id: package-version
-        uses: martinbeentjes/npm-get-version-action@main
-        with:
-          path: /
+        run: |
+            echo "Reading package.json from ./package.json"
+            PACKAGE_VERSION=$(cat ./package.json | jq '.version' | tr -d '"')
+            echo ::set-output name=current-version::$PACKAGE_VERSION
       -
         name: Build and push
         uses: docker/build-push-action@v3
