@@ -25,6 +25,8 @@ jobs:
         name: get-npm-version
         id: package-version
         uses: martinbeentjes/npm-get-version-action@main
+        with:
+          path: /
       -
         name: Build and push
         uses: docker/build-push-action@v3
