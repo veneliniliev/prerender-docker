@@ -30,9 +30,13 @@ A few default plugins have been activated by default (see `server.js`):
 - https://github.com/prerender/prerender/blob/master/lib/plugins/blacklist.js
   - env: BLACKLISTED_DOMAINS="blocked.domain.com"
 - https://github.com/prerender/prerender/blob/master/lib/plugins/httpHeaders.js
+- https://github.com/prerender/prerender/blob/master/lib/plugins/blockResources.js
 - https://github.com/prerender/prerender/blob/master/lib/plugins/removeScriptTags.js
 - https://github.com/prerender/prerender/blob/master/lib/plugins/whitelist.js
   - env: ALLOWED_DOMAINS="allowed.domain.com"
+- https://github.com/JonathanBennett/prerender-redis-cache
+  - env to enable plugin: REDISTOGO_URL || REDISCLOUD_URL || REDISGREEN_URL || REDIS_URL
+  - env: PAGE_TTL
 
 This can be modified by creating your own `server.js` and mounting this file as a docker volume:
 

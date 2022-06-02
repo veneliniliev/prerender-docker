@@ -25,4 +25,12 @@ if (process.env.ALLOWED_DOMAINS) {
     server.use(prerender.whitelist());
 }
 
+if (process.env.REDISTOGO_URL ||
+    process.env.REDISCLOUD_URL ||
+    process.env.REDISGREEN_URL ||
+    process.env.REDIS_URL) {
+    server.use(require('prerender-redis-cache'));
+}
+
+
 server.start();
