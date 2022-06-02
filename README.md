@@ -29,6 +29,8 @@ curl http://localhost:3000/render?url=https://www.example.com/
 A few default plugins have been activated by default (see `server.js`):
 - https://github.com/prerender/prerender/blob/master/lib/plugins/blacklist.js
   - env: BLACKLISTED_DOMAINS="blocked.domain.com"
+- https://github.com/prerender/prerender/blob/master/lib/plugins/sendPrerenderHeader.js
+- https://github.com/prerender/prerender/blob/master/lib/plugins/blockResources.js
 - https://github.com/prerender/prerender/blob/master/lib/plugins/httpHeaders.js
 - https://github.com/prerender/prerender/blob/master/lib/plugins/blockResources.js
 - https://github.com/prerender/prerender/blob/master/lib/plugins/removeScriptTags.js

@@ -20,6 +20,8 @@ if (process.env.BLACKLISTED_DOMAINS) {
 
 server.use(prerender.httpHeaders());
 server.use(prerender.removeScriptTags());
+server.use(prerender.sendPrerenderHeader());
+server.use(prerender.blockResources());
 
 if (process.env.ALLOWED_DOMAINS) {
     server.use(prerender.whitelist());
