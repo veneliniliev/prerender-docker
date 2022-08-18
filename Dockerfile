@@ -1,15 +1,25 @@
-FROM node:18-alpine
+FROM alpine:latest
 
 ENV CHROME_BIN=/usr/bin/chromium-browser
 ENV CHROME_PATH=/usr/lib/chromium/
 ENV MEMORY_CACHE=0
 
 # install chromium, tini and clear cache
-RUN apk add --update-cache chromium tini \
+RUN apk add --update-cache chromium tini nodejs npm \
  && rm -rf /var/cache/apk/* /tmp/*
 
-USER node
-WORKDIR "/home/node"
+# Set user and group
+ARG user=prerender
+ARG group=prerender
+ARG uid=1000
+ARG gid=1000
+RUN addgroup -g ${gid} ${group}
+RUN adduser -D -u ${uid} -G ${group} -s /bin/sh -h /prerender ${user}
+
+# Switch to user
+USER ${uid}:${gid}
+
+WORKDIR "/prerender"
 
 COPY ./package.json .
 COPY ./server.js .
