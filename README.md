@@ -3,7 +3,7 @@
 Lightweight Prerender container built on Alpine Linux with Node and Headless Chrome.
 
 - Prerender ^5.20
-- Chromium 99.0.4844.84
+- Chromium 102.0.5005.182
 - Node 18.x
 
 ## Requirements
@@ -15,8 +15,8 @@ Lightweight Prerender container built on Alpine Linux with Node and Headless Chr
 Pull and run the image:
 
 ```
-docker pull veneliniliev/prerender-docker:1.0.4
-docker run -p 3000:3000 veneliniliev/prerender-docker:1.0.4
+docker pull veneliniliev/prerender-docker:1.0.5
+docker run -p 3000:3000 veneliniliev/prerender-docker:1.0.5
 ```
 Prerender will now be running on http://localhost:3000. Try the container out with curl:
 
@@ -42,7 +42,7 @@ A few default plugins have been activated by default (see `server.js`):
 This can be modified by creating your own `server.js` and mounting this file as a docker volume:
 
 ```
-docker run -p 3000:3000 -v $(pwd)/server.js:/home/node/server.js veneliniliev/prerender-docker:1.0.4
+docker run -p 3000:3000 -v $(pwd)/server.js:/home/node/server.js veneliniliev/prerender-docker:1.0.5
 ```
 
 ## Prerender redis cache
@@ -54,7 +54,7 @@ You can customize cache behavior with environment variables:
 - PAGE_TTL=8600 : time to live in seconds
 
 ```
-docker run --network=host -p 3000:3000 -e REDIS_URL=redis://127.0.0.1:6379/0 veneliniliev/prerender-docker:1.0.4 
+docker run --network=host -p 3000:3000 -e REDIS_URL=redis://127.0.0.1:6379/0 veneliniliev/prerender-docker:1.0.5 
 ```
 
 ## Prerender memory cache
@@ -67,7 +67,7 @@ You can customize cache behavior with environment variables:
 - CACHE_TTL=6000 : time to live in seconds
 
 ```
-docker run -p 3000:3000 -e MEMORY_CACHE=1 -e CACHE_MAXSIZE=1000 -e CACHE_TTL=6000 veneliniliev/prerender-docker:1.0.4 
+docker run -p 3000:3000 -e MEMORY_CACHE=1 -e CACHE_MAXSIZE=1000 -e CACHE_TTL=6000 veneliniliev/prerender-docker:1.0.5 
 ```
 
 ## Prerender documentation

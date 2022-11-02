@@ -1,6 +1,6 @@
 {
   "name": "prerender-alpine",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "lightweight prerender container built on alpine linux",
   "main": "server.js",
   "scripts": {

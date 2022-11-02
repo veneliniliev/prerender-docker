@@ -27,6 +27,15 @@ COPY ./server.js .
 # install npm packages
 RUN npm install --no-package-lock
 
+# kernel/OS version
+RUN uname -a
+
+# node version
+RUN node -v
+
+# chromium version
+RUN chromium-browser --version
+
 EXPOSE 3000
 
 ENTRYPOINT ["tini", "--"]
